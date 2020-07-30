@@ -1,0 +1,35 @@
+server:
+  port: 9090
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          facebook:
+            clientId: 759263084817270
+            clientSecret: 8a9a1024b7e725f03c06cdc2db95df6c
+            accessTokenUri: https://graph.facebook.com/oauth/access_token
+            userAuthorizationUri: https://www.facebook.com/dialog/oauth
+            tokenName: oauth_token
+            authenticationScheme: query
+            clientAuthenticationScheme: form
+            resource:
+              userInfoUri: https://graph.facebook.com/me
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: Pass2020
+
+  flyway:
+    enabled: true
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        id.new_generator_mappings: false
+        format_sql: true
+    hibernate:
+      ddl-auto: none
